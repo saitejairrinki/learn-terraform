@@ -28,7 +28,7 @@ variable "fruit_stock" {
 variable "fruit_stock_with_price" {
   default = {
     apple = {
-      stock = 100
+      stock = 200
       price = 3
     }
     banana = {
@@ -50,4 +50,8 @@ output "fruits_second" {
 ## Access a Map Variable
 output "fruit_stock_apple" {
   value = var.fruit_stock["apple"]
+}
+
+output "fruit_stock_with_price_of_apple" {
+  value = var.fruit_stock["apple"].stock
 }
