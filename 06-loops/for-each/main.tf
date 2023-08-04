@@ -1,5 +1,6 @@
 variable "components" {
   default = {
+    frontend = { name = "frontend_sg" }
     catalogue = { name = "catalogue_sg" }
     mongodb = { name = "mongodb_sg"  }
   }
