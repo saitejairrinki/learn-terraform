@@ -53,6 +53,6 @@ output "test" {
 //  records = [lookup(aws_instance.instance, each.key[""] ]
 //}
 
-output "instances" {
-  value = aws_instance.instance
-}
+//output "instances" {
+//  value = aws_instance.instance
+//}
