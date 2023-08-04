@@ -35,9 +35,9 @@ resource "aws_instance" "instance" {
   instance_type = var.instance_type
   vpc_security_group_ids = var.security_groups
 
-  tags = {
-    Name = lookup(var.components, each.value["name"], "null")
-  }
+//  tags = {
+//    Name = lookup(var.components, each.value["name"], "null")
+//  }
 }
 
 //resource "aws_route53_record" "record" {
