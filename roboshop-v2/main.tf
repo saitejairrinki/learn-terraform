@@ -29,16 +29,16 @@ variable "components" {
   }
 }
 
-//resource "aws_instance" "instance" {
-//  for_each = var.components
-//  ami           = var.ami
-//  instance_type = var.instance_type
-//  vpc_security_group_ids = var.security_groups
-//
-//  tags = {
-//    Name = lookup(var.components, each.key , "null")
-//  }
-//}
+resource "aws_instance" "instance" {
+  for_each = var.components
+  ami           = var.ami
+  instance_type = var.instance_type
+  vpc_security_group_ids = var.security_groups
+
+  tags = {
+    Name = lookup(var.components, each.value["name"], null)
+  }
+}
 
 output "test" {
   value = lookup(var.components, "frontend", "null")
