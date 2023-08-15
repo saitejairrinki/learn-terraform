@@ -3,7 +3,7 @@ variable "ami" {
 }
 
 variable "security_groups" {
-  default = [ "sg-0dee954b08055e577" ]
+  default = [ "sg-0caa75434c69adc90" ]
 }
 
 variable "instance_type" {
@@ -11,7 +11,7 @@ variable "instance_type" {
 }
 
 variable "zone_id" {
-  default = "Z0021413JFIQEJP9ZO9Z"
+  default = "Z10356471FD910EUW1ONF"
 }
 
 variable "components" {
@@ -44,7 +44,7 @@ resource "aws_instance" "instance" {
 resource "aws_route53_record" "record" {
   for_each = var.components
   zone_id = var.zone_id
-  name    = "${lookup(each.value, "name", null)}.rdevopsb72.online"
+  name    = "${lookup(each.value, "name", null)}.vikramdevops.tech"
   type    = "A"
   ttl     = 30
   records = [lookup(lookup(aws_instance.instance, each.key, null), "private_ip", null) ]
