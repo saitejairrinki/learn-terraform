@@ -40,6 +40,7 @@ variable "components" {
 }
 
 output "private_record" {
-  value = lookup(var.components,each.key,null) 
+  for_each = var.components
+  value = lookup(each.key,"Name",null) 
 }
   
