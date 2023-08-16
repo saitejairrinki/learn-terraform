@@ -24,3 +24,22 @@ output "fruit_stock_price" {
         // try(var.fruit_with_stock["apple"].price, 2)
 }
 
+variable "components" {
+  default = {
+    frontend = { name = "frontend-dev"}
+    catalogue = { name = "catalogue-dev" }
+    mongodb = { name = "mongodb-dev"}
+    user = { name = "user-dev"}
+    redis = { name = "redis-dev"}
+    cart = { name = "cart-dev"}
+    mysql = { name = "mysql-dev" }
+    shipping = { name = "shipping-dev"}
+    payment = { name = "payment-dev"}
+    rabbitmq = { name = "rabbitmq-dev"}
+  }
+}
+
+output "private_record" {
+  value = lookup(var.components,each.key,null) 
+}
+  
