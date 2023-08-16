@@ -45,6 +45,6 @@ output "private_record" {
   /* for_each = var.components
   value = lookup(var.components, each.value, null)  */
   // lookup(var.components[component_key], "name", "N/A")
- value = [for component_key, component_value in keys(var.components) :{ name = component_value.name }]
+ value = [for component_key, component_value in keys(var.components) :{ name = component_value }]
 }
   
